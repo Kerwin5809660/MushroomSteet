@@ -1,25 +1,25 @@
 <!--  -->
 <template>
-  <div class="home-recommend">
-    <div v-for="item in recommend" :key="item.value" class="recommend-item" >
-      <img :src="item.image" alt="">
-      <div>{{item.title}}</div>
-    </div>
+  <div class="goods">
+    <GoosListItem v-for="item in goods" :goodsitem='item'></GoosListItem>
   </div>
 </template>
 
 <script>
+import GoosListItem from "./GoosListItem";
 export default {
-  name: "HomeRecommend",
-  props: {
-    recommend: {
-      type: Array,
-      default() {
-        return [];
-      }
+  name: "GoodsList",
+  props:{
+  goods:{
+    type:Array,
+    default(){
+      return []
     }
+  }
+},
+  components: {
+    GoosListItem
   },
-  components: {},
   data() {
     return {};
   },
@@ -39,22 +39,10 @@ export default {
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-.home-recommend {
-  width: 100%;
-  display: flex;
-  text-align: center;
-  font-size: 14px;
-  border-bottom: 7px solid #ddd;
-  padding: 10px 0px 20px;
-
-}
-
-.recommend-item {
-  flex:1;
-}
-
-.recommend-item img {
-  width: 70px;
-  margin-bottom: 10px;
-}
+  .goods{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    padding: 3px;
+    }
 </style>

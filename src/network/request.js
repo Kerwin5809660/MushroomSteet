@@ -7,10 +7,10 @@ export function request(config) {
     })
 
 //响应式拦截
-  axios.interceptors.response.use(res => {
+  axios1.interceptors.response.use(res => {
     return res.data
   })
-  return axios(config)
+    return axios1(config)
 }
 
 
